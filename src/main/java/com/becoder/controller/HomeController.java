@@ -22,7 +22,7 @@ public class HomeController {
 	@Autowired
 	private EmpService empService;
 
-	@GetMapping("/")
+	@GetMapping("/list")
 	public String index(Model m) {
 		List<Employee> list = empService.getAllEmp();
 		m.addAttribute("empList", list);
