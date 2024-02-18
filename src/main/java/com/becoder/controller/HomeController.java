@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.becoder.entity.Employee;
 import com.becoder.service.EmpService;
@@ -17,12 +18,13 @@ import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("/emp")
 public class HomeController {
 
 	@Autowired
 	private EmpService empService;
 
-	@GetMapping("/list")
+	@GetMapping("/")
 	public String index(Model m) {
 		List<Employee> list = empService.getAllEmp();
 		m.addAttribute("empList", list);
